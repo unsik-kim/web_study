@@ -8,10 +8,73 @@
 
       function change()
       {
-        var inputString = document.getElementById("text").value;
+        var inputString = document.getElementById("text").value; // 입력 문자열 가져옴
+
+        var colorSelect = document.getElementById("color"); // 색상 선택
+        var color;
+        for(var i=0; i<colorSelect.options.length; i++) {
+            if(colorSelect.options[i].selected == true) {
+                color = colorSelect.options[i].value;
+                inputString = inputString.fontcolor(color);
+                break;
+            }
+        }
+
+        var sizeSelect = document.getElementById("size"); // 사이즈 선택
+        var size;
+        for(var i=0; i<sizeSelect.options.length; i++) {
+            if(sizeSelect.options[i].selected == true) {
+                size = sizeSelect.options[i].value;
+                inputString = inputString.fontsize(null);
+                break;
+            }
+        }
+        inputString = inputString.fixed();
+
+        var optionSelect = document.getElementsByName("option"); // 옵션 선택
+        for(var i=0; i<optionSelect.length; i++) {
+            if(optionSelect[i].checked == true) {
+                var option = optionSelect[i].value;
+                switch(option) {
+                    case "1":
+                        inputString = inputString.strike(); // 취소선
+                        break;
+                    case "2":
+                        inputString = inputString.fontsize(null); // 폰트사이즈 삭제
+                        inputString = inputString.big(); // 크게
+                        break;
+                    case "3":
+                        inputString = inputString.fontsize(null);
+                        inputString = inputString.small(); // 작게
+                        break;
+                    case "4":
+                        inputString = inputString.bold(); // 두껍게
+                        break;
+                    case "5":
+                        inputString = inputString.italics(); // 기울임
+                        break;
+                    case "6":
+                        inputString = inputString.fontsize(null);
+                        inputString = inputString.sup(); // 위첨자
+                        break;
+                    case "7":
+                        inputString = inputString.fontsize(null);
+                        inputString = inputString.sub(); // 아래첨자
+                        break;
+                    case "8":
+                        inputString = inputString.toLowerCase(); // 소문자로
+                        break;
+                    case "9":
+                        inputString = inputString.toUpperCase(); // 대문자로
+                        break;
+                }
+
+            }
+        }
+
         var str = inputString;
-        var result = str.bold();
-        document.getElementById("output").innerHTML = result;
+        document.getElementById("output").innerHTML = str;
+
       }
     </script>
   </head>
@@ -22,34 +85,38 @@
     </div>
     <div>
       색상:
-      <select name="" id="">
-        <option value="red">빨</option>
-        <option value="orange">주</option>
-        <option value="yellow">노</option>
-        <option value="green">초</option>
+      <!--fontcolor()-->
+      <select name="" id="color">
+        <option value="#ff1d19">빨</option>
+        <option value="#fc7703">주</option>
+        <option value="#fcf403">노</option>
+        <option value="#20d687">초</option>
       </select>
     </div>
     <div>
       크기:
-      <select name="" id="">
+      <select name="" id="size">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
         <option value="4">4</option>
         <option value="5">5</option>
         <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
       </select>
     </div>
     <div>
-      <input type="checkbox" name="option1" /> 취소선
-      <input type="checkbox" name="option2" /> 크게
-      <input type="checkbox" name="option2" /> 작게
-      <input type="checkbox" name="option3" /> 두껍게
-      <input type="checkbox" name="option4" /> 기울임 <br />
-      <input type="checkbox" name="option5" /> 위첨자
-      <input type="checkbox" name="option5" /> 아래첨자
-      <input type="checkbox" name="option6" /> 소문자로
-      <input type="checkbox" name="option6" /> 대문자로
+      <input type="checkbox" name="option" value="1" /> 취소선
+      <input type="checkbox" name="option" value="2" /> 크게
+      <input type="checkbox" name="option" value="3" /> 작게
+      <input type="checkbox" name="option" value="4" /> 두껍게
+      <input type="checkbox" name="option" value="5" /> 기울임 <br />
+      <input type="checkbox" name="option" value="6" /> 위첨자
+      <input type="checkbox" name="option" value="7" /> 아래첨자
+      <input type="checkbox" name="option" value="8" /> 소문자로
+      <input type="checkbox" name="option" value="9" /> 대문자로
     </div>
     <span id="output">abc</span>
   </body>
