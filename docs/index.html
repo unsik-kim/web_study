@@ -3,15 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>회원가입</title>
-
+    <!--<link rel="stylesheet" type="text/css" href="03.css" -->
     <style type="text/css">
-      th,
-      td {
-        padding: 10px;
+      @import url("03.css");
+      div {
+        color: purple;
+      }
+
+      #subject {
+        color: red;
+      }
+
+      .title {
+        font-size: 30pt;
+      }
+      .bold {
+        font-weight: bold;
       }
     </style>
+
+    <title>회원가입</title>
   </head>
   <body>
     <div
@@ -35,13 +46,13 @@
         width="90%"
       >
         <tr>
-          <td align="center" colspan="2" bgcolor="#b6cff1">
-            <font size="5"><b>회원 기본 정보</b></font>
+          <td class="title" align="center" colspan="2" bgcolor="#b6cff1">
+            <font size="5">회원 기본 정보</font>
           </td>
         </tr>
         <tr>
-          <td align="center" width="25%" bgcolor="#eaeaea">
-            <font size="4"><b>아이디:</b></font>
+          <td align="center" width="25%" bgcolor="#eaeaea" id="subject">
+            <font size="4">아이디:</font>
           </td>
           <td>
             <input type="text" width="25%" name="id" maxlength="12" />
@@ -49,7 +60,7 @@
           </td>
         </tr>
         <tr>
-          <td align="center" width="25%" bgcolor="#eaeaea">
+          <td align="center" width="25%" bgcolor="#eaeaea" id="subject">
             <font size="4"><b>비밀번호:</b></font>
           </td>
           <td>
@@ -58,7 +69,7 @@
           </td>
         </tr>
         <tr>
-          <td align="center" width="25%" bgcolor="#eaeaea">
+          <td align="center" width="25%" bgcolor="#eaeaea" id="subject">
             <font size="4"><b>비밀번호확인:</b></font>
           </td>
           <td>
@@ -66,7 +77,7 @@
           </td>
         </tr>
         <tr>
-          <td align="center" width="25%" bgcolor="#eaeaea">
+          <td align="center" width="25%" bgcolor="#eaeaea" id="subject">
             <font size="4"><b>메일주소:</b></font>
           </td>
           <td>
@@ -74,19 +85,19 @@
           </td>
         </tr>
         <tr>
-          <td align="center" width="20%" bgcolor="#eaeaea">
+          <td align="center" width="20%" bgcolor="#eaeaea" id="subject">
             <font size="4"><b>이름:</b></font
             >:
           </td>
           <td><input type="text" width="30%" name="myname" /></td>
         </tr>
         <tr>
-          <td align="center" colspan="2" bgcolor="#b6cff1">
+          <td align="center" colspan="2" bgcolor="#b6cff1" id="subject">
             <font size="5"><b>개인 신상 정보</b></font>
           </td>
         </tr>
         <tr>
-          <td align="center" width="20%" bgcolor="#eaeaea">
+          <td align="center" width="20%" bgcolor="#eaeaea" id="subject">
             <font size="4"><b>주민등록번호:</b></font>
           </td>
           <td>
@@ -95,7 +106,7 @@
           </td>
         </tr>
         <tr>
-          <td align="center" width="20%" bgcolor="#eaeaea">
+          <td align="center" width="20%" bgcolor="#eaeaea" id="subject">
             <font size="4"><b>생일:</b></font>
           </td>
           <td>
@@ -151,7 +162,7 @@
           </td>
         </tr>
         <tr>
-          <td align="center" width="20%" bgcolor="#eaeaea">
+          <td align="center" width="20%" bgcolor="#eaeaea" d="subject">
             <font size="4"><b>관심분야:</b></font>
           </td>
           <td>
@@ -167,7 +178,7 @@
           </td>
         </tr>
         <tr>
-          <td align="center" width="20%" bgcolor="#eaeaea">
+          <td align="center" width="20%" bgcolor="#eaeaea" id="subject">
             <font size="4"><b>자기소개:</b></font>
           </td>
           <td><textarea name="intro" id="" cols="50%" rows="10"></textarea></td>

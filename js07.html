@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script language="javascript">
+      var a = 0;
+
+      //var time = setTimeout(cancleInterval, 5000);
+
+      var interval = setInterval(sayHello, 1000);
+
+      function cancleInterval() {
+        clearInterval(interval);
+      }
+
+      function sayHello() {
+        alert("hi" + a);
+        ++a;
+        if (a == 5) {
+          cancleInterval();
+        }
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
