@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>드롭다운 리스트 제어하기</title>
+    <script language="javascript">
+      var arrayWindowVersion = new Array();
+      var arrayOfficeVersion = new Array();
+
+      arrayWindowVersion.push("윈도우 2000");
+      arrayWindowVersion.push("윈도우 XP");
+      arrayWindowVersion.push("윈도우 비스타");
+
+      arrayOfficeVersion.push("오피스 XP");
+      arrayOfficeVersion.push("오피스 2003");
+      arrayOfficeVersion.push("오피스 2007");
+
+      function setVersion() {
+        var objProduct = document.getElementById("product");
+        var objVersion = document.getElementById("version");
+
+        var selectedValue = objProduct.options[objProduct.selectedIndex].value;
+
+        // select option[i]를 없애면 뒤에 남은 부분이 빈 부분을 다시 채워 넣는다.
+        // 따라서 계속 option[1]의 값을 null로 바꿔주어 빈자리를 채워 넣는 애들이 없어질 때 까지 이 동작을 반복한다
+        while (objVersion.options.length > 1) {
+          objVersion.options[1] = null;
+        }
+
+        switch (selectedValue) {
+          case "Windows":
+            for (var i = 0; i < arrayWindowVersion.length; i++) {
+              objVersion.options[objVersion.options.length] = new Option(
+                arrayWindowVersion[i],
+                arrayWindowVersion[i]
+              );
+            }
+            break;
+          case "Office":
+            for (var i = 0; i < arrayOfficeVersion.length; i++) {
+              objVersion.options[objVersion.options.length] = new Option(
+                arrayOfficeVersion[i],
+                arrayOfficeVersion[i]
+              );
+            }
+            break;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <select id="product" onchange="setVersion()">
+      <option value="">제품을 선택하세요.</option>
+      <option value="Windows">윈도우</option>
+      <option value="Office">오피스</option>
+    </select>
+    <select id="version">
+      <option value="">버전을 선택하세요.</option>
+    </select>
+  </body>
+</html>
