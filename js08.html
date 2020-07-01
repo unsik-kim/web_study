@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script lang="javacript">
+      function add() {
+        var num1 = document.getElementById("a");
+        var num2 = document.getElementById("b");
+        var sum = document.getElementById("e");
+
+        sum.value = parseInt(num1.value) + parseInt(num2.value)
+      }
+    </script>
+  </head>
+  <body>
+    <input type="text" width="30" id="a" /> +
+    <input type="text" width="30" id="b" />
+    <input type="button" width="30" id="c" value="=" onclick="add()" />
+    <input type="text" width="30" id="e" />
+  </body>
+</html>

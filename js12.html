@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script lang="javascript">
+
+      function change()
+      {
+        var inputString = document.getElementById("text");
+        var str = document.getElementById("output");
+          str.textContent = inputString.value;
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <input type="text" id="text" />
+      <input type="button" value="미리 보기" onclick="change()" />
+    </div>
+    <div>
+      색상:
+      <select name="" id="">
+        <option value="red">빨</option>
+        <option value="orange">주</option>
+        <option value="yellow">노</option>
+        <option value="green">초</option>
+      </select>
+    </div>
+    <div>
+      크기:
+      <select name="" id="">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+    </div>
+    <div>
+      <input type="checkbox" name="option1" /> 취소선
+      <input type="checkbox" name="option2" /> 크게
+      <input type="checkbox" name="option2" /> 작게
+      <input type="checkbox" name="option3" /> 두껍게
+      <input type="checkbox" name="option4" /> 기울임 <br />
+      <input type="checkbox" name="option5" /> 위첨자
+      <input type="checkbox" name="option5" /> 아래첨자
+      <input type="checkbox" name="option6" /> 소문자로
+      <input type="checkbox" name="option6" /> 대문자로
+    </div>
+    <p id="output">abc</p>
+  </body>
+</html>

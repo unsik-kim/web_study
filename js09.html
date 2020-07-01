@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script lang="javascript">
+      function report(){
+        var msg = "다음 여행지를 선택하셨습니다.\n";
+        var checkboxes = document.getElementsByName("select");
+
+        for (var i=0; i<checkboxes.length; i++)
+        {
+            if(checkboxes[i].checked){
+                msg += "-" + checkboxes[i].value + "\n";
+            }
+        }
+
+        alert(msg);
+      }
+    </script>
+  </head>
+  <body>
+    <h1>지금 가장 가고 싶은 곳은?</h1>
+    <br />
+    <input name="select" type="checkbox" value="일본" /> 일본
+    <input name="select" type="checkbox" value="미국" /> 미국
+    <input name="select" type="checkbox" value="캐나다" /> 캐나다
+    <input name="select" type="checkbox" value="유럽" /> 유럽
+    <input type="button" value="답변하기" onclick="report()" />
+  </body>
+</html>
