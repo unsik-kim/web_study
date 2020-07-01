@@ -8,9 +8,9 @@
 
       function change()
       {
-        var inputString = document.getElementById("text");
-        var str = document.getElementById("output");
-          str.textContent = inputString.value;
+        var str = inputString;
+        var result = str.bold();
+        document.getElementById("output").innerHTML = result;
       }
     </script>
   </head>
@@ -50,6 +50,6 @@
       <input type="checkbox" name="option6" /> 소문자로
       <input type="checkbox" name="option6" /> 대문자로
     </div>
-    <p id="output">abc</p>
+    <span id="output">abc</span>
   </body>
 </html>
