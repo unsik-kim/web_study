@@ -7,23 +7,21 @@
   </head>
   <body>
     <script type="text/javascript" src="js16.js"></script>
-    <div>
-      <input type="text" id="input" />
-      <input type="button" value="배열에 추가하기" onclick="" />
-    </div>
-    <div>
-      현재 배열의 값 :
-      <span id="output">3, 5</span>
-    </div>
-    <div>
-      <div>
-        <input type="button" , value="Shift로 꺼내기" onclick="" />
-        <input type="button" value="Pop으로 꺼내기" onclick="" />
-      </div>
-      <div>
-        <input type="button" , value="Shift로 꺼내기" onclick="" />
-        <input type="button" value="Pop으로 꺼내기" onclick="" />
-      </div>
-    </div>
+    <input type="text" id="input" />
+    <input type="button" value="배열에 추가하기" onclick="funcInput()" /><br />
+    현재 배열의 값 :
+    <span id="output">-</span>
+    <br />
+    <br />
+
+    <input type="button" , value="Shift로 꺼내기" onclick="funcShift()" />
+    <input
+      type="button"
+      value="Pop으로 꺼내기"
+      onclick="funcPop()"
+    /><br /><br />
+
+    <input type="button" , value="Reverse로 뒤집기" onclick="funcReverse()" />
+    <input type="button" value="Sort로 정렬하기" onclick="funcSort()" />
   </body>
 </html>
