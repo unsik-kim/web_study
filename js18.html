@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style type="text/css">
+      .image {
+        position: relative;
+        width: 100%; /* for IE 6 */
+        opacity: 80%;
+      }
+
+      #divClock {
+        color: white;
+        align-content: flex-start;
+        position: absolute;
+        top: 200px;
+        left: 0;
+        width: 100%;
+        font-size: 30px;
+      }
+    </style>
+    <script lang="javascript">
+      var imgArray = new Array();
+      imgArray[0] = "/photo/01.jpg";
+      imgArray[1] = "/photo/02.jpg";
+      imgArray[2] = "/photo/03.jpg";
+      imgArray[3] = "/photo/04.jpg";
+      imgArray[4] = "/photo/05.jpg";
+
+      function showImage()
+      {
+          var imgNum = Math.round(Math.random()*3);
+          var objImg = document.getElementById("introImg");
+          objImg.src = imgArray[imgNum];
+      }
+
+      function showClock() {
+          var currentDate = new Date();
+          var divClock = document.getElementById("divClock");
+
+          var str;
+          if(currentDate.getHours()>=12)
+          {
+            str = "오후 ";
+          }
+          else
+          {
+            str = "오전 ";
+          }
+          var msg = "현재 시간: " + str + currentDate.getHours() + "시 ";
+          msg += currentDate.getMinutes() + "분 ";
+          msg += currentDate.getSeconds() + "초 ";
+
+          divClock.innerText = msg;
+
+          setTimeout(showClock, 1000);
+      }
+    </script>
+  </head>
+  <body onload="showImage(),showClock()">
+    <div class="image">
+      <img id="introImg" />
+      <div id="divClock" class="clock"></div>
+    </div>
+  </body>
+</html>
