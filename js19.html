@@ -26,11 +26,7 @@
       var count = 0;
 
       setInterval(funcPrintData, 1000);
-      function test()
-      {
-        funcPrintData()
 
-      }
       function funcPrintData()
       {
         if(count<(textData.length))
@@ -48,7 +44,7 @@
       }
     </script>
   </head>
-  <body onload="">
+  <body onload="funcPrintData()">
     <div id="outBox">
       <div id="box">
         <p id="textBox"></p>
