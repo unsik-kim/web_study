@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style type="text/css">
+      .clock {
+        font-size: 30px;
+        color: rebeccapurple;
+      }
+    </style>
+    <script lang="javascript">
+      function showClock() {
+          var currentDate = new Date();
+          var divClock = document.getElementById("divClock");
+
+          var str;
+          if(currentDate.getHours()>=12)
+          {
+            str = "오후 ";
+          }
+          else
+          {
+            str = "오전 ";
+          }
+          var msg = "현재 시간: " + str + currentDate.getHours() + "시 ";
+          msg += currentDate.getMinutes() + "분 ";
+          msg += currentDate.getSeconds() + "초 ";
+
+          divClock.innerText = msg;
+
+          setTimeout(showClock, 1000);
+      }
+    </script>
+  </head>
+  <body onload="showClock()">
+    <div id="divClock" class="clock"></div>
+  </body>
+</html>
