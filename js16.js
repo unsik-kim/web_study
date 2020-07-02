@@ -2,10 +2,14 @@ var arrayData = new Array();
 
 function funcInput() {
   var strInput = document.getElementById("input").value;
+  var number = parseInt(strInput);
 
-  arrayData.push(strInput);
-
-  funcUpdateArray();
+  if (isNaN(number) == false) {
+    arrayData.push(number);
+  } else {
+    alert("숫자만 입력하시오!");
+  }
+  funcUpdateArray(number);
 }
 
 function funcAlert(num, strInput = "") {
@@ -43,7 +47,11 @@ function funcReverse() {
 }
 
 function funcSort() {
-  funcAlert(4, arrayData.sort());
+  arrayData.sort(function (a, b) {
+    // 오름차순
+    return a - b;
+  });
+  funcAlert(4);
   funcUpdateArray();
 }
 
