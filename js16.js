@@ -10,6 +10,7 @@ function funcInput() {
     alert("숫자만 입력하시오!");
   }
   funcUpdateArray(number);
+  document.getElementById("input").value = "";
 }
 
 function funcAlert(num, strInput = "") {
