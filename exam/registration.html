@@ -13,8 +13,8 @@
   </head>
   <body>
     <script type="text/javascript" src="main.js"></script>
-    <audio src="music.mp3" autoplay="autoplay"></audio>
-    <form action="mailto:someone@example.com" method="post">
+    <!--<audio src="music.mp3" autoplay="autoplay"></audio>-->
+    <form method="post">
       <table
         style="border-collapse: collapse;"
         align="center"
@@ -32,8 +32,14 @@
             <font size="4"><b>아이디</b></font>
           </td>
           <td>
-            <input type="text" width="25%" name="id" maxlength="12" />
-            4자~12자의 영문 대소문자와 숫자로만 입력
+            <input
+              type="text"
+              width="25%"
+              id="inputId"
+              maxlength="12"
+              onblur="validationId()"
+            />
+            첫글자 영문 대소문자 및 4자~12자의 영문 대소문자와 숫자로만 입력
           </td>
         </tr>
         <tr>
@@ -41,7 +47,13 @@
             <font size="4"><b>비밀번호</b></font>
           </td>
           <td>
-            <input type="password" width="25%" name="pwd" maxlength="12" />
+            <input
+              type="password"
+              width="25%"
+              id="inputPwd1"
+              maxlength="12"
+              onblur="validationPwd()"
+            />
             4자~12자의 영문 대소문자와 숫자로만 입력
           </td>
         </tr>
@@ -50,7 +62,13 @@
             <font size="4"><b>비밀번호확인</b></font>
           </td>
           <td>
-            <input type="password" width="25%" name="pwd2" maxlength="12" />
+            <input
+              type="password"
+              width="25%"
+              id="inputPwd2"
+              maxlength="12"
+              onblur="checkPwd()"
+            />
           </td>
         </tr>
         <tr>
@@ -58,14 +76,27 @@
             <font size="4"><b>메일주소</b></font>
           </td>
           <td>
-            <input type="text" width="30%" name="mail" /> 예) id@domain.com
+            <input
+              type="text"
+              width="30%"
+              id="inputMail"
+              onblur="validationMail()"
+            />
+            예) id@domain.com
           </td>
         </tr>
         <tr>
           <td align="center" width="20%" bgcolor="#eaeaea">
             <font size="4"><b>이름</b></font>
           </td>
-          <td><input type="text" width="30%" name="myname" /></td>
+          <td>
+            <input
+              type="text"
+              width="30%"
+              id="inputName"
+              onblur="validationName()"
+            />
+          </td>
         </tr>
         <tr>
           <td align="center" colspan="2" bgcolor="#b6cff1">
@@ -90,11 +121,6 @@
               id="sample6_detailAddress"
               placeholder="상세주소"
             />
-            <input
-              type="text"
-              id="sample6_extraAddress"
-              placeholder="참고항목"
-            />
             <!--다음 주소찾기 API HTML 코드 종료-->
           </td>
         </tr>
@@ -103,8 +129,14 @@
             <font size="4"><b>주민등록번호</b></font>
           </td>
           <td>
-            <input type="text" width="10%" maxlength="14" name="registnum1" /> -
-            <input type="text" width="10%" maxlength="14" name="registnum2" />
+            <input type="text" width="10%" maxlength="6" id="inputRegNum1" /> -
+            <input
+              type="text"
+              width="10%"
+              maxlength="7"
+              id="inputRegNum2"
+              onblur="validationRegNumber()"
+            />
           </td>
         </tr>
         <tr>
@@ -112,10 +144,11 @@
             <font size="4"><b>생년월일</b></font>
           </td>
           <td>
-            <input type="text" maxlength="4" />년<input
+            <input type="text" maxlength="4" id="inputYear" />년<input
               type="text"
               maxlength="월"
-            />월<input type="text" maxlength="일" />일
+              id="inputMonth"
+            />월<input type="text" maxlength="일" id="inputDay" />일
           </td>
         </tr>
         <tr>
@@ -123,22 +156,48 @@
             <font size="4"><b>관심분야</b></font>
           </td>
           <td>
-            <input type="checkbox" name="hobby" value="1" />컴퓨터<input
+            <input
+              type="checkbox"
+              name="hobby"
+              value="1"
+              onblur="checkHoby()"
+            />컴퓨터<input
               type="checkbox"
               name="hobby"
               value="2"
-            />인터넷<input type="checkbox" name="hobby" value="3" />여행<input
+              onblur="checkHoby()"
+            />인터넷<input
+              type="checkbox"
+              name="hobby"
+              value="3"
+              onblur="checkHoby()"
+            />여행<input
               type="checkbox"
               name="hobby"
               value="4"
-            />영화감상<input type="checkbox" name="hobby" value="5" />음악감상
+              onblur="checkHoby()"
+            />영화감상<input
+              type="checkbox"
+              name="hobby"
+              value="5"
+              onblur="checkHoby()"
+            />음악감상
           </td>
         </tr>
         <tr>
           <td align="center" width="20%" bgcolor="#eaeaea">
             <font size="4"><b>자기소개</b></font>
           </td>
-          <td><textarea name="intro" id="" cols="50%" rows="10"></textarea></td>
+          <td>
+            <textarea
+              name="intro"
+              id="inputIntroduce"
+              cols="50%"
+              rows="10"
+              onblur="validationIntroduce()"
+              value="abc"
+            ></textarea>
+          </td>
         </tr>
       </table>
       <div align="center">
