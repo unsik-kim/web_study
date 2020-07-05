@@ -1,209 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      th,
-      td {
-        padding: 10px;
-      }
-    </style>
-  </head>
-  <body>
-    <script type="text/javascript" src="main.js"></script>
-    <!--<audio src="music.mp3" autoplay="autoplay"></audio>-->
-    <form method="post">
-      <table
-        style="border-collapse: collapse;"
-        align="center"
-        border="1"
-        bordercolor="skyblue"
-        width="90%"
-      >
-        <tr>
-          <td align="center" colspan="2" bgcolor="#b6cff1">
-            <font size="5"><b>회원 기본 정보</b></font>
-          </td>
-        </tr>
-        <tr>
-          <td align="center" width="25%" bgcolor="#eaeaea">
-            <font size="4"><b>아이디</b></font>
-          </td>
-          <td>
-            <input
-              type="text"
-              width="25%"
-              id="inputId"
-              maxlength="12"
-              onblur="validationId()"
-            />
-            첫글자 영문 대소문자 및 4자~12자의 영문 대소문자와 숫자로만 입력
-          </td>
-        </tr>
-        <tr>
-          <td align="center" width="25%" bgcolor="#eaeaea">
-            <font size="4"><b>비밀번호</b></font>
-          </td>
-          <td>
-            <input
-              type="password"
-              width="25%"
-              id="inputPwd1"
-              maxlength="12"
-              onblur="validationPwd()"
-            />
-            4자~12자의 영문 대소문자와 숫자로만 입력
-          </td>
-        </tr>
-        <tr>
-          <td align="center" width="25%" bgcolor="#eaeaea">
-            <font size="4"><b>비밀번호확인</b></font>
-          </td>
-          <td>
-            <input
-              type="password"
-              width="25%"
-              id="inputPwd2"
-              maxlength="12"
-              onblur="checkPwd()"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td align="center" width="25%" bgcolor="#eaeaea">
-            <font size="4"><b>메일주소</b></font>
-          </td>
-          <td>
-            <input
-              type="text"
-              width="30%"
-              id="inputMail"
-              onblur="validationMail()"
-            />
-            예) id@domain.com
-          </td>
-        </tr>
-        <tr>
-          <td align="center" width="20%" bgcolor="#eaeaea">
-            <font size="4"><b>이름</b></font>
-          </td>
-          <td>
-            <input
-              type="text"
-              width="30%"
-              id="inputName"
-              onblur="validationName()"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td align="center" colspan="2" bgcolor="#b6cff1">
-            <font size="5"><b>개인 신상 정보</b></font>
-          </td>
-        </tr>
-        <tr>
-          <td align="center" width="20%" bgcolor="#eaeaea">
-            <font size="4"><b>주소</b></font>
-          </td>
-          <td>
-            <!--다음 주소찾기 API HTML 코드 시작-->
-            <input type="text" id="sample6_postcode" placeholder="우편번호" />
-            <input
-              type="button"
-              onclick="daumPostcode()"
-              value="우편번호 찾기"
-            /><br />
-            <input type="text" id="sample6_address" placeholder="주소" /><br />
-            <input
-              type="text"
-              id="sample6_detailAddress"
-              placeholder="상세주소"
-            />
-            <!--다음 주소찾기 API HTML 코드 종료-->
-          </td>
-        </tr>
-        <tr>
-          <td align="center" width="20%" bgcolor="#eaeaea">
-            <font size="4"><b>주민등록번호</b></font>
-          </td>
-          <td>
-            <input type="text" width="10%" maxlength="6" id="inputRegNum1" /> -
-            <input
-              type="text"
-              width="10%"
-              maxlength="7"
-              id="inputRegNum2"
-              onblur="validationRegNumber()"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td align="center" width="20%" bgcolor="#eaeaea">
-            <font size="4"><b>생년월일</b></font>
-          </td>
-          <td>
-            <input type="text" maxlength="4" id="inputYear" />년<input
-              type="text"
-              maxlength="월"
-              id="inputMonth"
-            />월<input type="text" maxlength="일" id="inputDay" />일
-          </td>
-        </tr>
-        <tr>
-          <td align="center" width="20%" bgcolor="#eaeaea">
-            <font size="4"><b>관심분야</b></font>
-          </td>
-          <td>
-            <input
-              type="checkbox"
-              name="hobby"
-              value="1"
-              onblur="checkHoby()"
-            />컴퓨터<input
-              type="checkbox"
-              name="hobby"
-              value="2"
-              onblur="checkHoby()"
-            />인터넷<input
-              type="checkbox"
-              name="hobby"
-              value="3"
-              onblur="checkHoby()"
-            />여행<input
-              type="checkbox"
-              name="hobby"
-              value="4"
-              onblur="checkHoby()"
-            />영화감상<input
-              type="checkbox"
-              name="hobby"
-              value="5"
-              onblur="checkHoby()"
-            />음악감상
-          </td>
-        </tr>
-        <tr>
-          <td align="center" width="20%" bgcolor="#eaeaea">
-            <font size="4"><b>자기소개</b></font>
-          </td>
-          <td>
-            <textarea
-              name="intro"
-              id="inputIntroduce"
-              cols="50%"
-              rows="10"
-              onblur="validationIntroduce()"
-              value="abc"
-            ></textarea>
-          </td>
-        </tr>
-      </table>
-      <div align="center">
-        <input type="submit" value="회원 가입" />
-        <input type="reset" value="다시 입력" />
-      </div>
-    </form>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    th,
+    td {
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <script type="text/javascript" src="main.js"></script>
+  <!--<audio src="music.mp3" autoplay="autoplay"></audio>-->
+  <form action="" onsubmit="return checkAllInput()" method="post">
+
+    <table style="border-collapse: collapse;" align="center" border="1" bordercolor="skyblue" width="90%">
+      <tr>
+        <td>
+          <font size="5"><b>정규표현식 사용</b></font>
+        </td>
+        <td colspan="1">
+          <input type="checkbox" name="validationOption" onclick="checkValidationOption(this.checked)"> 사용
+        </td>
+      </tr>
+      <tr>
+        <td align="center" colspan="2" bgcolor="#b6cff1">
+          <font size="5"><b>회원 기본 정보</b></font>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" width="25%" bgcolor="#eaeaea">
+          <font size="4"><b>아이디</b></font>
+        </td>
+        <td>
+          <input type="text" width="25%" id="inputId" maxlength="12" onblur="validationId()" />
+          첫글자 영문 대소문자 및 4자~12자의 영문 대소문자와 숫자로만 입력
+        </td>
+      </tr>
+      <tr>
+        <td align="center" width="25%" bgcolor="#eaeaea">
+          <font size="4"><b>비밀번호</b></font>
+        </td>
+        <td>
+          <input type="password" width="25%" id="inputPwd1" maxlength="12" onblur="validationPwd()" />
+          4자~12자의 영문 대소문자와 숫자로만 입력
+        </td>
+      </tr>
+      <tr>
+        <td align="center" width="25%" bgcolor="#eaeaea">
+          <font size="4"><b>비밀번호확인</b></font>
+        </td>
+        <td>
+          <input type="password" width="25%" id="inputPwd2" maxlength="12" onblur="checkPwd()" />
+        </td>
+      </tr>
+      <tr>
+        <td align="center" width="25%" bgcolor="#eaeaea">
+          <font size="4"><b>메일주소</b></font>
+        </td>
+        <td>
+          <input type="text" width="30%" id="inputMail" onblur="validationMail()" />
+          예) id@domain.com
+        </td>
+      </tr>
+      <tr>
+        <td align="center" width="20%" bgcolor="#eaeaea">
+          <font size="4"><b>이름</b></font>
+        </td>
+        <td>
+          <input type="text" width="30%" id="inputName" onblur="validationName()" />
+        </td>
+      </tr>
+      <tr>
+        <td align="center" colspan="2" bgcolor="#b6cff1">
+          <font size="5"><b>개인 신상 정보</b></font>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" width="20%" bgcolor="#eaeaea">
+          <font size="4"><b>주소</b></font>
+        </td>
+        <td>
+          <!--다음 주소찾기 API HTML 코드 시작-->
+          <input type="text" id="inputPostcode" placeholder="우편번호" maxlength="5" />
+          <input type="button" onclick="daumPostcode()" value="우편번호 찾기" /><br />
+          <input type="text" id="inputAddress" placeholder="주소" /><br />
+          <input type="text" id="intputDetailAddress" placeholder="상세주소" />
+          <!--다음 주소찾기 API HTML 코드 종료-->
+        </td>
+      </tr>
+      <tr>
+        <td align="center" width="20%" bgcolor="#eaeaea">
+          <font size="4"><b>주민등록번호</b></font>
+        </td>
+        <td>
+          <input type="text" width="10%" maxlength="6" id="inputRegNum1" /> -
+          <input type="text" width="10%" maxlength="7" id="inputRegNum2" onblur="validationRegNumber()" />
+        </td>
+      </tr>
+      <tr>
+        <td align="center" width="20%" bgcolor="#eaeaea">
+          <font size="4"><b>생년월일</b></font>
+        </td>
+        <td>
+          <input type="text" maxlength="4" id="inputYear" />년<input type="text" maxlength="월" id="inputMonth" />월<input
+            type="text" maxlength="일" id="inputDay" />일
+        </td>
+      </tr>
+      <tr>
+        <td align="center" width="20%" bgcolor="#eaeaea">
+          <font size="4"><b>관심분야</b></font>
+        </td>
+        <td>
+          <input type="checkbox" name="hobby" value="1" onblur="checkHoby()" />컴퓨터<input type="checkbox" name="hobby"
+            value="2" onblur="checkHoby()" />인터넷<input type="checkbox" name="hobby" value="3"
+            onblur="checkHoby()" />여행<input type="checkbox" name="hobby" value="4" onblur="checkHoby()" />영화감상<input
+            type="checkbox" name="hobby" value="5" onblur="checkHoby()" />음악감상
+        </td>
+      </tr>
+      <tr>
+        <td align="center" width="20%" bgcolor="#eaeaea">
+          <font size="4"><b>자기소개</b></font>
+        </td>
+        <td>
+          <textarea name="intro" id="inputIntroduce" cols="50%" rows="10" onblur="validationIntroduce()"
+            placeholder="자기소개를 10자 이상 입력하세요." value=" abc"></textarea>
+        </td>
+      </tr>
+    </table>
+    <br>
+    <div align="center">
+      <input type="submit" value="회원 가입" />
+      <input type="reset" value="다시 입력" />
+    </div>
+  </form>
+</body>
+
 </html>
